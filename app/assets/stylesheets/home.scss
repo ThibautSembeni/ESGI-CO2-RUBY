@@ -1,0 +1,170 @@
+@import "variables";
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: $bg-color;
+
+    nav {
+        ul {
+            @include reset-list;
+            display: flex;
+            gap: 80px;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: $text-color;
+                }
+            }
+        }
+    }
+
+    #menu-button {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+}
+
+main {
+    background-color: $bg-color;
+    padding: 0 82px;
+
+    section:first-child {
+        height: calc(100vh - 90px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1 {
+            color: $title-1;
+            font-size: rem(64);
+        }
+        h2 {
+            color: $title-2;
+            font-size: rem(54);
+        }
+        h3 {
+            color: $title-3;
+            font-size: rem(44);
+        }
+    }
+
+    section:nth-child(2) {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 62px;
+
+        h1 {
+            font-size: rem(64);
+            color: $title-1;
+        }
+
+        form {
+            display: flex;
+            width: 100%;
+
+            article#first {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                background-color: #1B1D1F;
+                width: 50%;
+
+                label {
+                    color: white !important;
+                    margin-bottom: 23px;
+                }
+                
+                div {
+                    display: flex;
+                    gap: 43px;
+                    width: 100%;
+
+                    input {
+                        border-radius: 17px;
+                        border: none;
+                        padding: 10px 15px;
+                        width: 70%;
+
+                        &[type="submit"] {
+                            background-color: $title-3;
+                            color: white;
+                            width: 30%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            article:last-child {
+                padding: 20px;
+                background-color: #18181B;
+                width: 50%;
+
+                label:first-child {
+                    color: white;
+                    margin-bottom: 23px;
+                }
+
+                div {
+                    margin-top: 23px;
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 0 71px;
+                    gap: 25px;
+
+                    label {
+                        display: inline-block;
+                        background-color: #ddd;
+                        padding: 10px 20px;
+                        font-size: rem(16);
+                        border: 2px solid #ddd;
+                        border-radius: 17px;
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                    input[type='radio'] {
+                        opacity: 0;
+                        position: fixed;
+                        width: 0;
+
+                        &:checked + label {
+                            background-color: $title-3;
+                            border: 2px dashed #444;
+                        }
+
+                        &:hover + label {
+                            background-color: $title-3;
+                            color: white;
+                            border-color: $title-3;
+                        }
+                    }
+                }
+            }
+        }
+
+        article#second {
+            padding: 20px;
+            background-color: #27292B;
+            min-height: 50%;
+
+            h1 {
+
+                span:first-child {
+                    font-size: rem(36);
+                    color: $title-3;
+                }
+
+                span:last-child {
+                    color: white;
+                    margin-left: 14px;
+                }
+            }
+        }
+    }
+}

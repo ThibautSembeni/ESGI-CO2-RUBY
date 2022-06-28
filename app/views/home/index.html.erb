@@ -1,0 +1,48 @@
+<header>
+     <a href="#">
+        <%= image_tag "wizard_logo.png", height: 63, width: 63 %>
+    </a>
+    <nav id="site-nav">
+        <ul>
+            <li><a href="#">Distance</a></li>
+            <li><a href="#">Itinéraire</a></li>
+        </ul>
+    </nav>  
+    <button id="menu-button"></button>
+</header>
+<main>
+    <section>
+        <h1>Calculez votre consommation en CO2</h1>
+        <h2>Selon une distance</h2>
+        <h3>Selon un titinéraire</h3>
+    </section>
+    <section>
+        <h1>Calculez via une distance</h1>
+        <%= form_with url: distance_path, method: :post do |form| %>
+        <article id="first">
+            <%= form.label :distance, "Saisissez la distance :" %>
+            <div>
+                <%= form.text_field :distance, :required => true %>
+                <%= form.submit "Calculer" %>
+            </div>
+        </article>
+        <article>
+            <%= form.label "Saisissez un mode de transport :" %>
+            <div>
+                <%= form.radio_button :type, 'car' %>
+                <%= form.label :type_car, "Voitures" %>
+                <%= form.radio_button :type, 'train' %>
+                <%= form.label :type_train, "Trains" %>
+                <%= form.radio_button :type, 'bus' %>
+                <%= form.label :type_bus, "Bus" %>
+            </div>
+        </article>
+        <% end %>
+        <article id="second">
+            <% if local_assigns.has_key? :status_msg %>
+            <p><%= status_msg %></p>
+            <% end %>
+            <h1><span>0.62</span><span>kgCO2e</spcan></h1>
+        </article>
+    </section>
+</main>
