@@ -14,35 +14,36 @@
     <section>
         <h1>Calculez votre consommation en CO2</h1>
         <h2>Selon une distance</h2>
-        <h3>Selon un titinéraire</h3>
+        <h3>Selon un itinéraire</h3>
     </section>
     <section>
+
         <h1>Calculez via une distance</h1>
-        <%= form_with url: distance_path, method: :post do |form| %>
+        # create a form with a text field and a submit button to home_controller with the action distance
+        <h1>Calculez via une distance</h1>
+        <%= form_for :distance do |f| %>
         <article id="first">
-            <%= form.label :distance, "Saisissez la distance :" %>
+            <%= label_tag :distance, "Saisissez la distance (en kilometre) :" %>
             <div>
-                <%= form.text_field :distance, :required => true %>
-                <%= form.submit "Calculer" %>
+                <%= text_field_tag 'distance', '', placeholder: 'Distance en km' %>
+                <%= submit_tag "Calculer" %>
             </div>
         </article>
         <article>
-            <%= form.label "Saisissez un mode de transport :" %>
+            <%= label_tag "Saisissez un mode de transport :" %>
             <div>
-                <%= form.radio_button :type, 'car' %>
-                <%= form.label :type_car, "Voitures" %>
-                <%= form.radio_button :type, 'train' %>
-                <%= form.label :type_train, "Trains" %>
-                <%= form.radio_button :type, 'bus' %>
-                <%= form.label :type_bus, "Bus" %>
+                <%= radio_button_tag :type, 'voiture' %>
+                <%= label_tag :type_voiture, "Voitures" %>
+                <%= radio_button_tag :type, 'train' %>
+                <%= label_tag :type_train, "Trains" %>
+                <%= radio_button_tag :type, 'bus' %>
+                <%= label_tag :type_bus, "Bus" %>
             </div>
         </article>
         <% end %>
         <article id="second">
-            <% if local_assigns.has_key? :status_msg %>
-            <p><%= status_msg %></p>
-            <% end %>
-            <h1><span>0.62</span><span>kgCO2e</spcan></h1>
+            <p><%= @status_msg %></p>
+            <h1><span><%= @co2 %></span><san>kgCO2e pour <%= @distance %>km en <%= @type %> </san></h1>
         </article>
     </section>
 </main>
