@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    
   end
   
   def distance
@@ -11,7 +12,7 @@ class HomeController < ApplicationController
     # if type = car , then @co2 = @distance * 0.62
     # if type = train , then @co2 = @distance * 0.42
     # if type = bus , then @co2 = @distance * 0.32
-    if @type == 'car'
+    if @type == 'voiture'
       @co2 = (@distance * @car)
     elsif @type == 'train'
       @co2 = (@distance * @train)
@@ -20,7 +21,8 @@ class HomeController < ApplicationController
     end
     puts  @co2
     puts @status_msg
-    render 'index'
+    # render 'index', locals: { co2: @co2 }
+    redirect_to 'index', co2: @co2  
   end
 
   
