@@ -22,7 +22,12 @@ class HomeController < ApplicationController
     puts  @co2
     puts @status_msg
     # render 'index', locals: { co2: @co2 }
-    redirect_to 'index', co2: @co2  
+    # redirect_to 'index', co2: @co2  
+    render 'index'
+  end
+
+  def itinieraire 
+  
   end
 
   

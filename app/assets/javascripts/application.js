@@ -14,3 +14,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("distance").addEventListener("click", function (e) {
+    window.scrollBy(0, (100 * window.innerHeight) / 100 + 90);
+  });
+  document.getElementById("itinéraire").addEventListener("click", function (e) {
+    window.scrollBy(0, (200 * window.innerHeight) / 100 + 90);
+  });
+});

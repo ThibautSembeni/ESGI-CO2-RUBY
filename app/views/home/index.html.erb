@@ -4,8 +4,8 @@
     </a>
     <nav id="site-nav">
         <ul>
-            <li><a href="#">Distance</a></li>
-            <li><a href="#">Itinéraire</a></li>
+            <li id="distance">Distance</li>
+            <li id="itinéraire">Itinéraire</li>
         </ul>
     </nav>  
     <button id="menu-button"></button>
@@ -37,6 +37,38 @@
                 <%= radio_button_tag :type, 'bus' %>
                 <%= label_tag :type_bus, "Bus" %>
             </div>
+        </article>
+        <% end %>
+        <article id="second">
+            <p><%= @status_msg %></p>
+            <h1><span><%= @co2 %></span><san>kgCO2e pour <%= @distance %>km en <%= @type %> </san></h1>
+        </article>
+    </section>
+    <section>
+
+        <h1>Calculez via un itinéraire</h1>
+        <%= form_for :itineraire do |f| %>
+        <article id="first">
+            <%= label_tag :start, "Saisissez le départ :" %>
+            <div>
+                <%= text_field_tag 'start', '', placeholder: 'Départ' %>
+            </div>
+            <%= label_tag :end, "Saisissez l'arrivée :" %>
+            <div>
+                <%= text_field_tag 'end', '', placeholder: 'Arrivée' %>
+            </div>
+        </article>
+        <article>
+            <%= label_tag "Saisissez un mode de transport :" %>
+            <div>
+                <%= radio_button_tag :type, 'car' %>
+                <%= label_tag :type_car, "Voitures" %>
+                <%= radio_button_tag :type, 'trains' %>
+                <%= label_tag :type_trains, "Trains" %>
+                <%= radio_button_tag :type, 'buss' %>
+                <%= label_tag :type_buss, "Bus" %>
+            </div>
+            <%= submit_tag "Calculer" %>
         </article>
         <% end %>
         <article id="second">

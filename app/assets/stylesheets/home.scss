@@ -13,10 +13,9 @@ header {
             gap: 80px;
 
             li {
-                a {
-                    text-decoration: none;
-                    color: $text-color;
-                }
+                text-decoration: none;
+                color: $text-color;
+                cursor: pointer;
             }
         }
     }
@@ -31,6 +30,7 @@ header {
 main {
     background-color: $bg-color;
     padding: 0 82px;
+    height: 300vh;
 
     section:first-child {
         height: calc(100vh - 90px);
@@ -51,8 +51,8 @@ main {
         }
     }
 
-    section:nth-child(2) {
-        height: 100vh;
+    section:nth-child(2), section:nth-child(3) {
+        height: 109vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -151,7 +151,7 @@ main {
         article#second {
             padding: 20px;
             background-color: #27292B;
-            min-height: 50%;
+            height: rem(363);
 
             h1 {
 
@@ -165,6 +165,49 @@ main {
                     margin-left: 14px;
                 }
             }
+        }
+    }
+
+    section:nth-child(3) {
+        height: 100vh;
+        gap: rem(15);
+
+        form {
+
+            article#first {
+
+                input[type="text"] {
+                    margin-bottom: rem(32);
+                    width: 100%;
+                }
+
+                & + article {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    input {
+                        border-radius: 17px;
+                        border: none;
+                        padding: 10px 15px;
+                        width: 70%;
+
+                        &[type="submit"] {
+                            background-color: $title-3;
+                            color: white;
+                            width: 30%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                article#second {
+                    height: rem(239);
+                }
+            }
+
+           
         }
     }
 }
